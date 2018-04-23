@@ -6,7 +6,13 @@ class Timer extends Component {
     render() {
         console.log('props from redux store:', this.props);
 
-        const { isPlaying, elapsedTime, timerDuration } = this.props;
+        const { 
+            isPlaying,
+            elapsedTime, 
+            timerDuration,
+            startTimer,
+            restartTimer,
+        } = this.props;
 
         return(
             <View style={styles.container} >
@@ -16,10 +22,10 @@ class Timer extends Component {
                 </View>
                 <View style={styles.lower} >
                     {!isPlaying && (
-                        <Button iconName="play-circle" onPress={() => alert('It works')} />
+                        <Button iconName="play-circle" onPress={startTimer} />
                     )}
                     {isPlaying && (
-                        <Button iconName="stop-circle" onPress={() => alert('It works')}  />
+                        <Button iconName="stop-circle" onPress={restartTimer}  />
                     )}
                 </View>
             </View>
